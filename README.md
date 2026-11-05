@@ -12,12 +12,12 @@
 
 ## สร้างโปรเจกต์จากศูนย์
 
-```powershell
+```cmd
 uv init --package --python 3.14 playwright-python-tests
-cd playwright-python-tests
+cd /d playwright-python-tests
 uv add --dev pytest pytest-playwright
 uv run playwright install chromium
-New-Item -ItemType Directory tests
+mkdir tests
 ```
 
 `pytest-playwright` ให้ fixture เช่น `page` สำหรับแต่ละ browser test ส่วนคำสั่ง `playwright install` จะติดตั้ง browser binary ที่ Playwright ใช้ทดสอบ หากต้องการติดตั้ง browser ที่รองรับหลายตัว ให้ใช้ `uv run playwright install` โดยไม่ระบุชื่อ browser.
@@ -57,7 +57,7 @@ playwright-python-tests/
 
 ## ติดตั้งและรันโปรเจกต์นี้
 
-```powershell
+```cmd
 uv sync
 uv run playwright install chromium
 uv run pytest
@@ -65,14 +65,14 @@ uv run pytest
 
 รัน test เฉพาะไฟล์หรือเลือก test ได้ด้วย:
 
-```powershell
+```cmd
 uv run pytest tests/test_smoke.py -v
 uv run pytest -k sorting -v
 ```
 
 เมื่อรันผ่าน Playwright pytest plugin จะเปิด browser แบบ headless ตามปกติ หากต้องการเห็น browser ให้ใช้ `--headed`:
 
-```powershell
+```cmd
 uv run pytest --headed
 ```
 
@@ -100,7 +100,7 @@ uv run pytest --headed
 
 ### คำสั่งที่ใช้บ่อย
 
-```powershell
+```cmd
 uv sync
 uv run playwright install chromium
 uv run pytest -v
@@ -123,3 +123,4 @@ uv run pytest -k sorting -v                   # เลือก test จาก�
 - [Playwright Python: Assertions](https://playwright.dev/python/docs/test-assertions)
 - [Playwright Python: Running and debugging tests](https://playwright.dev/python/docs/running-tests)
 - [uv: Working on projects](https://docs.astral.sh/uv/guides/projects/)
+
