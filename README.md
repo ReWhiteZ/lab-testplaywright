@@ -13,12 +13,15 @@
 ## สร้างโปรเจกต์จากศูนย์
 
 ```cmd
-uv init --package --python 3.14 playwright-python-tests
+mkdir playwright-python-tests
 cd /d playwright-python-tests
-uv add --dev pytest pytest-playwright
+uv init
+uv add pytest pytest-playwright
 uv run playwright install chromium
 mkdir tests
 ```
+
+ลำดับนี้เหมือนขั้นตอนที่ใช้สร้าง Lab นี้: `uv init` ก่อน แล้วใช้ `uv add` เพิ่มแพ็กเกจตรง ๆ โดยไม่ต้องใส่ `--dev`
 
 `pytest-playwright` ให้ fixture เช่น `page` สำหรับแต่ละ browser test ส่วนคำสั่ง `playwright install` จะติดตั้ง browser binary ที่ Playwright ใช้ทดสอบ หากต้องการติดตั้ง browser ที่รองรับหลายตัว ให้ใช้ `uv run playwright install` โดยไม่ระบุชื่อ browser.
 
