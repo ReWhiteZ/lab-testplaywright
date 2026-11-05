@@ -1,0 +1,25 @@
+[project]
+name = "lab-05-playwright"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Phurin", email = "Phurikung290948@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "pytest>=9.2.0",
+    "pytest-playwright>=0.10.0",
+]
+
+[project.scripts]
+lab-05-playwright = "lab_05_playwright:main"
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+filterwarnings = ["ignore::pytest.PytestRemovedIn10Warning"]
